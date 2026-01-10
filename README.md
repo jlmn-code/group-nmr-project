@@ -19,23 +19,23 @@ I don't have NMR spectra but I have worked so much with them and know its struct
 
 The results are HSQC spectra of size 8 megas and spectrum with noise
 
-![TABLE: RAW HSQC](images/tbl-raw-hsqc.jpeg){#tbl-raw-hsqc width="33%"} ![GRAPH: RAW HSQC](images/fig-hsqc-raw.jpeg){width="25%"}
+![TABLE: RAW HSQC](images/tbl-raw-hsqc.jpeg) ![GRAPH: RAW HSQC](images/fig-hsqc-raw.jpeg)
 
 2.  Autamatic load & filter
 
 With a simple lines of code, we can open all spectra collection reduce the files and improve the tables to analysis of data and spectra to elucidation and integration
 
-![TABLE: FILTER HSQC](images/tbl-filter-hsqc.jpeg){#tbl-filter-hsqc width="33%"} ![GRAPH: FILTER HSQC](images/fig-hsqc-filter.jpeg){#fig-filter-hsqc width="25%"}
+![TABLE: FILTER HSQC](images/tbl-filter-hsqc.jpeg)  ![GRAPH: FILTER HSQC](images/fig-hsqc-filter.jpeg)
 
 3.  reduce the size the files
 
 With the 2. point reduce the info. from more 100 to 0.1 megas
 
-![TABLE: INFO. FILES](images/tbl-info-files.jpeg){#tbl-info width="30%"} ![Column graph reduction size of HSQC files](images/fig-save.jpeg){#fig-reduction width="35%"}
+![TABLE: INFO. FILES](images/tbl-info-files.jpeg) ![Column graph reduction size of HSQC files](images/fig-save.jpeg)
 
 4.  open in a simple dataframe
 
-![All HSQC spectra](images/fig-all-dataset.jpeg){#fig-dataset}
+![All HSQC spectra](images/fig-all-dataset.jpeg) 
 
 5.  elucidate the compound
 
