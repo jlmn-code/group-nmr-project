@@ -18,7 +18,7 @@ I don't have NMR spectra but I have worked so much with them and know its struct
 
 3. reduce the size the files
 
-::: {.column layout-ncol="2"}
+::: {layout-ncol=2}
 ![Column graph reduction size of HSQC files](images/fig-save.jpeg){#fig-reduction}
 
 ![All HSQC spectra](images/fig-all-dataset.jpeg){#fig-dataset}
