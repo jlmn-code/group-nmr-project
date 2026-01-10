@@ -18,6 +18,15 @@ I don't have NMR spectra but I have worked so much with them and know its struct
 
 3. reduce the size the files
 
+
+<p align="center">
+  <img src="images/fig-hsqc-raw.jpeg" width="45%"/>
+  <img src="images/fig-hsqc-filter.jpeg" width="45%"/>
+  <br>
+  <em>Caption 1 HSQC without manipulated;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Caption 2 HSQC filter</em>
+</p>
+
+
 <p align="center">
   <img src="images/fig-save.jpeg" width="45%" alt="Column graph reduction size of HSQC files" />
   <img src="images/fig-all-dataset.jpeg" width="45%" alt="All HSQC spectra" />
