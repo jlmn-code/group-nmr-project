@@ -21,6 +21,8 @@ I don't have NMR spectra but I have worked so much with them and know its struct
 <p align="center">
   <img src="images/fig-save.jpeg" width="45%" alt= "Column graph reduction size of HSQC files"/>
   <img src="images/fig-all-dataset.jpeg" width="45%" alt="All HSQC spectra"/>
+  <br>
+  <em>Caption 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Caption 2</em>
 </p>
 
 
