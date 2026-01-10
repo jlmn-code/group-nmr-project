@@ -20,10 +20,8 @@ I don't have NMR spectra but I have worked so much with them and know its struct
 
 ```html
 <p align="center">
-  <img src="images/fig-save.jpeg" width="45%" />
-  <img src="images/fig-all-dataset.jpeg" width="45%" />
+  <img src="images/fig-save.jpeg" width="45%" alt= "Column graph reduction size of HSQC files"/>
+  <img src="images/fig-all-dataset.jpeg" width="45%" alt="All HSQC spectra"/>
 </p>
-<br>
-  <em>Caption for Image 1 Column graph reduction size of HSQC files; Caption for Image 2 All HSQC spectra</em>
-</p>
+
 
