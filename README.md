@@ -31,7 +31,9 @@ With a simple lines of code, we can open all spectra collection reduce the files
 
 With the 2. point reduce the info. from more 100 to 0.1 megas
 
-![TABLE: INFO. FILES](images/tbl-info-files.jpeg) ![Column graph reduction size of HSQC files](images/fig-save.jpeg)
+![TABLE: INFO. FILES](images/tbl-info-files.jpeg)
+
+![Column graph reduction size of HSQC files](images/fig-save.jpeg)
 
 4.  open in a simple dataframe
 
