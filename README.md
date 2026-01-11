@@ -63,7 +63,7 @@ The results are 15 HSQC spectra of size 8 megas each. The table and figure below
 
 <br>
 
-## 2.  ATOMATIC LOAD & FILTER
+## 2.  AUTOMATIC LOAD & FILTER DATA
 
 With a few simple lines of code, we can open the entire collection of spectra and compact all the information into a simple structure (DataFrame).
 <br>
@@ -106,10 +106,10 @@ At this point it should be noted that the information is reduced from more than 
 </table>
 <br>
 
-4.  open in a simple dataframe
+## 4.  OPEN IN A SIMPLE DATASET
 
 ![All HSQC spectra](images/fig-all-dataset.jpeg){#fig-dataset}
 
-5.  elucidate the compound
+## 5.  elucidate the compound
 
-6.  integrate and quantify 6.
+## 6.  integrate and quantify.
