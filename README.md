@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "group-nmr-project"
 author: 'jlmn'
 format: html
 ---
@@ -44,32 +44,51 @@ The simulated HSQCs have the same structure as a real HSQC and are saved in form
 
 <br>
 
-The results are HSQC spectra of size 8 megas and spectrum with noise
+The results are 15 HSQC spectra of size 8 megas each. The table and figure below show 5 rows of the greated csv file and the resulting HSQC.
 
 <table style="width: 100%;">
   <tr>
     <td align="center" style="width: 50%;">
       <img src="images/tbl-raw-hsqc.jpeg" valign="middle" alt="TABLE: RAW HSQC" style="width:100%;">
       <br>
-      <b>Figure 1: Raw HSQC</b>
+      <b>Table 1: Raw HSQC</b>
     </td>
     <td align="center" style="width: 50%;">
       <img src="images/fig-hsqc-raw.jpeg" valign="middle" alt="tbl-raw-hsqc" style="width:100%;">
       <br>
-      <b>Figure 2: GRAPH: RAW HSQC</b>
+      <b>Figure 1: GRAPH: RAW HSQC</b>
     </td>
   </tr>
 </table>
 
 
 
-2.  Autamatic load & filter
+## 2.  ATOMATIC LOAD & FILTER
 
-With a simple lines of code, we can open all spectra collection reduce the files and improve the tables to analysis of data and spectra to elucidation and integration
+With a few simple lines of code, we can open the entire collection of spectra and compact all the information into a simple structure (DataFrame).
 
-![TABLE: FILTER HSQC](images/tbl-filter-hsqc.jpeg){#tbl-filter-hsqc width="33%"} ![GRAPH: FILTER HSQC](images/fig-hsqc-filter.jpeg){#fig-filter-hsqc width="25%"}
+## 3.  FILTER & REDUCE THE SIZE
 
-3.  reduce the size the files
+With our DataFrame and other simple lines of code, we can reduce file sizes and improve tables for data analysis and the automatic elucidation and integration of custom spectra. The table and figure below show 5 rows of the sorted table and the new resulting HSQC free to noise.
+
+<table style="width: 100%;">
+  <tr>
+    <td align="center" style="width: 50%;">
+      <img src="images/tbl-filter-hsqc.jpeg" valign="middle" alt="fig-filter-hsqc" style="width:100%;">
+      <br>
+      <b>Table 2: TABLE: FILTER HSQC</b>
+    </td>
+    <td align="center" style="width: 50%;">
+      <img src="images/fig-hsqc-raw.jpeg" valign="middle" alt="fig-hsqc-filter" style="width:100%;">
+      <br>
+      <b>Figure 2: GRAPH: FILTER HSQC</b>
+    </td>
+  </tr>
+</table>
+
+
+
+
 
 With the 2. point reduce the info. from more 100 to 0.1 megas
 
