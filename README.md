@@ -46,10 +46,22 @@ The simulated HSQCs have the same structure as a real HSQC and are saved in form
 
 The results are HSQC spectra of size 8 megas and spectrum with noise
 
-+-----------------------------------------------------------------------+-----------------------------------------------------------------+
-| ![TABLE: RAW HSQC](images/tbl-raw-hsqc.jpeg){alt="TABLE: RAW HSQC"} \ | ![tbl-raw-hsqc](images/fig-hsqc-raw.jpeg){alt="tbl-raw-hsqc"} \ |
-| **Figure 1: Raw HSQC**                                                | **Figure 2: GRAPH: RAW HSQC**                                   |
-+-----------------------------------------------------------------------+-----------------------------------------------------------------+
+<table style="width: 100%;">
+  <tr>
+    <td align="center" style="width: 50%;">
+      <img src="images/tbl-raw-hsqc.jpeg" valign="middle" alt="TABLE: RAW HSQC" style="width:100%;">
+      <br>
+      <b>Figure 1: Raw HSQC</b>
+    </td>
+    <td align="center" style="width: 50%;">
+      <img src="images/fig-hsqc-raw.jpeg" valign="middle" alt="tbl-raw-hsqc" style="width:100%;">
+      <br>
+      <b>Figure 2: GRAPH: RAW HSQC</b>
+    </td>
+  </tr>
+</table>
+
+
 
 2.  Autamatic load & filter
 
