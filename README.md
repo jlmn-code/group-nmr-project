@@ -4,40 +4,68 @@ author: 'jlmn'
 format: html
 ---
 
-
 # group-nmr-project
 
-Welcome everyone. I want to create a code to manipulate a nmr collection
+Welcome everyone.
 
-The idea is:
+The feeling that commercial software in the analytical field presents many barriers is the same feeling I had when processing and reporting analytical results.
 
-1.  open a large collection of nmr of HSQC
+**There were real barriers.**
 
-I don't have NMR spectra but I have worked so much with them and know its structure and form and I can simulated. In the file `code` there is a script `nmr_simulator.py` where in *python* code create 15 *HSQC* with the same structure that a real HSQC save in **MNova** software in format `.txt` or .csv
+That's why I had to improve my statistical training, which necessarily involved using open-source software like R and Python.
+
+My job responsibilities included analyzing the NMR spectra of complex carbohydrates that we obtained. These were processed individually and elucidated—quantified using the tools available in the software.
+
+Commercial software does not have the option to add information to the sample, such as the company that manufactured it or any information important to obtain an inference analysis of a population 'n' against other populations or the use of basic models or advanced models such as machine learning and its metrics (mae, rmse...).
+
+In addition, open-source programs offer the opportunity for anyone to:
+
+1.  reproduce the results
+
+2.  validate the data
+
+3.  be transparent and unmodifiable.
+
+> works under GMP standards
+
+This repository is for HSQC spectra, a major problem I've had to work with, and the learning curve was long, but the solution was simple and clear.
+
+> Just a few lines of code.
+
+The schematic description is
+
+## 1. OPEN A LARGE COLLECTION HSQC'S SPECTRA
+
+I don't have NMR spectra, but I've worked extensively with them; I know their structure and shape, so I can simulate them.
+
+In the file's `code`, there's a script called `nmr_simulator.py` (Python code) where 15 HSQCs of the cholesterol compound were created with slight variations depending on the manufacturer and the introduction of a cholesterol-propyl compound as an impurity `cholesterol-05C`.
+
+The simulated HSQCs have the same structure as a real HSQC and are saved in formats available in the MNova software: `.txt` or `.csv`.
 
 <br>
 
 The results are HSQC spectra of size 8 megas and spectrum with noise
 
-![TABLE: RAW HSQC](images/tbl-raw-hsqc.jpeg) ![GRAPH: RAW HSQC](images/fig-hsqc-raw.jpeg)
++-----------------------------------------------------------------------+-----------------------------------------------------------------+
+| ![TABLE: RAW HSQC](images/tbl-raw-hsqc.jpeg){alt="TABLE: RAW HSQC"} \ | ![tbl-raw-hsqc](images/fig-hsqc-raw.jpeg){alt="tbl-raw-hsqc"} \ |
+| **Figure 1: Raw HSQC**                                                | **Figure 2: GRAPH: RAW HSQC**                                   |
++-----------------------------------------------------------------------+-----------------------------------------------------------------+
 
 2.  Autamatic load & filter
 
 With a simple lines of code, we can open all spectra collection reduce the files and improve the tables to analysis of data and spectra to elucidation and integration
 
-![TABLE: FILTER HSQC](images/tbl-filter-hsqc.jpeg)  ![GRAPH: FILTER HSQC](images/fig-hsqc-filter.jpeg)
+![TABLE: FILTER HSQC](images/tbl-filter-hsqc.jpeg){#tbl-filter-hsqc width="33%"} ![GRAPH: FILTER HSQC](images/fig-hsqc-filter.jpeg){#fig-filter-hsqc width="25%"}
 
 3.  reduce the size the files
 
 With the 2. point reduce the info. from more 100 to 0.1 megas
 
-![TABLE: INFO. FILES](images/tbl-info-files.jpeg)
-
-![Column graph reduction size of HSQC files](images/fig-save.jpeg)
+![TABLE: INFO. FILES](images/tbl-info-files.jpeg){#tbl-info width="30%"} ![Column graph reduction size of HSQC files](images/fig-save.jpeg){#fig-reduction width="35%"}
 
 4.  open in a simple dataframe
 
-![All HSQC spectra](images/fig-all-dataset.jpeg) 
+![All HSQC spectra](images/fig-all-dataset.jpeg){#fig-dataset}
 
 5.  elucidate the compound
 
