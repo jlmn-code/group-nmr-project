@@ -74,12 +74,12 @@ With our DataFrame and other simple lines of code, we can reduce file sizes and 
 <table style="width: 100%;">
   <tr>
     <td align="center" style="width: 50%;">
-      <img src="images/tbl-filter-hsqc.jpeg" valign="middle" alt="fig-filter-hsqc" style="width:100%;">
+      <img src="images/tbl-filter-hsqc.jpeg" valign="middle" alt="tbl-filter-hsqc" style="width:100%;">
       <br>
       <b>Table 2: TABLE: FILTER HSQC</b>
     </td>
     <td align="center" style="width: 50%;">
-      <img src="images/fig-filter-hsqc.jpeg" valign="middle" alt="fig-hsqc-filter" style="width:100%;">
+      <img src="images/fig-hsqc-filter.jpeg" valign="middle" alt="fig-hsqc-filter" style="width:100%;">
       <br>
       <b>Figure 2: GRAPH: FILTER HSQC</b>
     </td>
