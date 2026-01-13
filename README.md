@@ -13,7 +13,7 @@ The feeling that commercial software in the analytical field presents many barri
 **There were real barriers.**
 
 That's why I had to improve my statistical training, which necessarily involved using open-source software like R and Python.
-<img align="right" src="images/scheme-hsqc2.jpg">
+<img align="right" width=500 src="images/scheme-hsqc2.jpg">
 My job responsibilities included analyzing the NMR spectra of complex carbohydrates that we obtained. These were processed individually and elucidated—quantified using the tools available in the software.
 Commercial software does not have the option to add information to the sample, such as the company that manufactured it or any information important to obtain an inference analysis of a population 'n' against other populations or the use of basic models or advanced models such as machine learning and its metrics (mae, rmse...).
 
