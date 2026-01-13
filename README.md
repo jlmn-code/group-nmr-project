@@ -16,12 +16,10 @@ That's why I had to improve my statistical training, which necessarily involved 
 
 My job responsibilities included analyzing the NMR spectra of complex carbohydrates that we obtained. These were processed individually and elucidated—quantified using the tools available in the software.
 
-
-<div align="right">
 Commercial software does not have the option to add information to the sample, such as the company that manufactured it or any information important to obtain an inference analysis of a population 'n' against other populations or the use of basic models or advanced models such as machine learning and its metrics (mae, rmse...).
 
 In addition, open-source programs offer the opportunity for anyone to:
-
+<div align="right">
   
   <img align="right" width="200" src="images/scheme-hsqc2.jpg">
 
