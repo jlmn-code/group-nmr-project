@@ -19,8 +19,6 @@ Commercial software does not have the option to add information to the sample, s
 
 In addition, open-source programs offer the opportunity for anyone to:
 
-
-
 1.  reproduce the results
 
 2.  validate the data
@@ -67,6 +65,37 @@ The results are 15 HSQC spectra of size 8 megas each. The table and figure below
 ## 2.  AUTOMATIC LOAD & FILTER DATA
 
 With a few simple lines of code, we can open the entire collection of spectra and compact all the information into a simple structure (DataFrame).
+The data loading is a simple and smart step where the most times we don't think much but I learn that is the `key point`.
+All code is in the `nmr_scrip.py` with 2 important points
+
+### FILES PATH
+
+in `folder_sim` say to PC where is the path your files .csv and in `csv_sim` save in a list all path files, ready to use in a single block
+
+```{python}
+
+folder_sim = Path("database/simulation")
+
+csv_sim = list(folder_sim.glob("*.csv"))
+
+```
+
+### LOOP TO CREATE A DATAFRAME & 1^ST^ AND POWERFUL FILTER
+
+In the loop say that each path file in the list `csv_sim` + open, filter intensity up 50 (drop negative and small signal ~ noise) + id each file + stack all files in a single and easy structure *DataFrame*. trere are more steps but the previous steps are very powerful
+
+```{python}
+
+df_list = []
+
+for file in csv_sim:
+    temp_df = pd.read_csv(file) ### load each simulated nmr file
+    temp_df = temp_df[temp_df['intensity'] > 50] ### filter low intensity peaks
+    temp_df['id'] = file.stem ### add an id column based on file name
+    df_list.append(temp_df)  ### append to list
+
+```
+
 <br>
 
 ## 3.  FILTER & REDUCE THE SIZE
