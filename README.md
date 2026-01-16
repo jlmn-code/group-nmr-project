@@ -79,8 +79,8 @@ folder_sim = Path("database/simulation")
 csv_sim = list(folder_sim.glob("*.csv"))
 
 ```
-<a name="sec-lo0p"></a>
-### LOOP TO CREATE A DATAFRAME + 1^ST^ AND POWERFUL FILTER {#sec-lop}
+
+### LOOP TO CREATE A DATAFRAME + 1^ST^ AND POWERFUL FILTER
 
 In the loop say that each path file in the list `csv_sim` + open, filter intensity up 50 (drop negative and small signal ~ noise) + id each file + stack all files in a single and easy structure *DataFrame*. trere are more steps but the previous steps are very powerful
 
@@ -100,14 +100,15 @@ for file in csv_sim:
 
 ## 3.  FILTER & REDUCE THE SIZE
 
-With our DataFrame and other simple lines of code (#sec- loop) (#sec-lop) , we can reduce file sizes and improve tables for data analysis and the automatic elucidation and integration of custom spectra. The table and figure below show 5 rows of the sorted table and the new resulting HSQC free to noise.
+With our DataFrame and other simple lines of code, we can reduce file sizes and improve tables for data analysis and the automatic elucidation and integration of custom spectra. The table and figure below show 5 rows of the sorted table and the new resulting HSQC free to noise.
+The change is so dramatic from 110 to 0.1 megas.
 
 <table style="width: 100%;">
   <tr>
     <td align="center" style="width: 50%;">
       <img src="images/tbl-filter-hsqc.jpeg" valign="middle" alt="fig-info" style="width:100%;">
       <br>
-      <b>Table 1: File Size Comparison</b>
+      <b>Table 1: Table: tidy data, ready to use</b>
     </td>
     <td align="center" style="width: 50%;">
       <img src="images/fig-hsqc-filter.jpeg" valign="middle" alt="fig-reduction" style="width:100%;">
@@ -117,7 +118,11 @@ With our DataFrame and other simple lines of code (#sec- loop) (#sec-lop) , we c
   </tr>
 </table>
 
+<br>
+
 At this point it should be noted that the information is reduced from more than 100 to 0.1 megabytes.
+
+<br>
 
 <table border="0">
   <tr>
