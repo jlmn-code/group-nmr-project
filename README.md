@@ -79,8 +79,8 @@ folder_sim = Path("database/simulation")
 csv_sim = list(folder_sim.glob("*.csv"))
 
 ```
-<a name="sec-lop"></a>
-### LOOP TO CREATE A DATAFRAME + 1^ST^ AND POWERFUL FILTER
+<a name="sec-lo0p"></a>
+### LOOP TO CREATE A DATAFRAME + 1^ST^ AND POWERFUL FILTER {#sec-lop}
 
 In the loop say that each path file in the list `csv_sim` + open, filter intensity up 50 (drop negative and small signal ~ noise) + id each file + stack all files in a single and easy structure *DataFrame*. trere are more steps but the previous steps are very powerful
 
@@ -100,17 +100,23 @@ for file in csv_sim:
 
 ## 3.  FILTER & REDUCE THE SIZE
 
-With our DataFrame and other simple lines of code (#sec- loop) , we can reduce file sizes and improve tables for data analysis and the automatic elucidation and integration of custom spectra. The table and figure below show 5 rows of the sorted table and the new resulting HSQC free to noise.
+With our DataFrame and other simple lines of code (#sec- loop) (#sec-lop) , we can reduce file sizes and improve tables for data analysis and the automatic elucidation and integration of custom spectra. The table and figure below show 5 rows of the sorted table and the new resulting HSQC free to noise.
 
-<table style="width: 100%;">
+<table border="0">
   <tr>
-    <td align="center" style="width: 50%;">
-      <img src="images/tbl-filter-hsqc.jpeg" valign="middle" alt="fig-filter-hsqc" style="width:100%;">
-      <br>
-      <b>Table 2: TABLE: FILTER HSQC</b>
+    <!-- Left Column: Table -->
+    <td valign="top" width="50%">
+
+| file | size (mb) |
+| :--- | :--- |
+| before | 114.33 |
+| filter | 0.11 |
+
+<p align="center"><b>Table 1: File Size Comparison</b></p>
     </td>
-    <td align="center" style="width: 50%;">
-      <img src="images/fig-hsqc-filter.jpeg" valign="middle" alt="fig-hsqc-filter" style="width:100%;">
+    <!-- Right Column: Image -->
+    <td valign="top" width="50%" align="center">
+      <img src="images/fig-hsqc-filter.jpeg" alt="fig-hsqc-filter" style="max-width:100%;">
       <br>
       <b>Figure 2: GRAPH: FILTER HSQC</b>
     </td>
