@@ -80,7 +80,7 @@ csv_sim = list(folder_sim.glob("*.csv"))
 
 ```
 
-### LOOP TO CREATE A DATAFRAME & 1^ST^ AND POWERFUL FILTER
+### LOOP TO CREATE A DATAFRAME + 1^ST^ AND POWERFUL FILTER
 
 In the loop say that each path file in the list `csv_sim` + open, filter intensity up 50 (drop negative and small signal ~ noise) + id each file + stack all files in a single and easy structure *DataFrame*. trere are more steps but the previous steps are very powerful
 
@@ -100,7 +100,7 @@ for file in csv_sim:
 
 ## 3.  FILTER & REDUCE THE SIZE
 
-With our DataFrame and other simple lines of code, we can reduce file sizes and improve tables for data analysis and the automatic elucidation and integration of custom spectra. The table and figure below show 5 rows of the sorted table and the new resulting HSQC free to noise.
+With our DataFrame and other simple lines of code (#LOOP-TO-CREATE-ADATAFRAME-+-1^ST^-AND-POWERFUL-FILTER) , we can reduce file sizes and improve tables for data analysis and the automatic elucidation and integration of custom spectra. The table and figure below show 5 rows of the sorted table and the new resulting HSQC free to noise.
 
 <table style="width: 100%;">
   <tr>
