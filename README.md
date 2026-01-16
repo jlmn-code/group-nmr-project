@@ -102,6 +102,23 @@ for file in csv_sim:
 
 With our DataFrame and other simple lines of code (#sec- loop) (#sec-lop) , we can reduce file sizes and improve tables for data analysis and the automatic elucidation and integration of custom spectra. The table and figure below show 5 rows of the sorted table and the new resulting HSQC free to noise.
 
+<table style="width: 100%;">
+  <tr>
+    <td align="center" style="width: 50%;">
+      <img src="images/tbl-filter-hsqc.jpeg" valign="middle" alt="fig-info" style="width:100%;">
+      <br>
+      <b>Table 1: File Size Comparison</b>
+    </td>
+    <td align="center" style="width: 50%;">
+      <img src="images/fig-hsqc-filter.jpeg" valign="middle" alt="fig-reduction" style="width:100%;">
+      <br>
+      <b>Figure 2: GRAPH: FILTER HSQC files</b>
+    </td>
+  </tr>
+</table>
+
+At this point it should be noted that the information is reduced from more than 100 to 0.1 megabytes.
+
 <table border="0">
   <tr>
     <!-- Left Column: Table -->
@@ -112,34 +129,17 @@ With our DataFrame and other simple lines of code (#sec- loop) (#sec-lop) , we c
 | before | 114.33 |
 | filter | 0.11 |
 
-<p align="center"><b>Table 1: File Size Comparison</b></p>
+<p align="center"><b>Table 2: TABLE: INFO. FILES</b></p>
     </td>
     <!-- Right Column: Image -->
     <td valign="top" width="50%" align="center">
-      <img src="images/fig-hsqc-filter.jpeg" alt="fig-hsqc-filter" style="max-width:100%;">
+      <img src="images/fig-save.jpeg" alt="fig-hsqc-filter" style="max-width:100%;">
       <br>
-      <b>Figure 2: GRAPH: FILTER HSQC</b>
+      <b>Figure 3: Column graph reduction size of HSQC</b>
     </td>
   </tr>
 </table>
 
-
-At this point it should be noted that the information is reduced from more than 100 to 0.1 megabytes.
-
-<table style="width: 100%;">
-  <tr>
-    <td align="center" style="width: 50%;">
-      <img src="images/tbl-info-files.jpeg" valign="middle" alt="fig-info" style="width:100%;">
-      <br>
-      <b>Table 3: TABLE: INFO. FILES</b>
-    </td>
-    <td align="center" style="width: 50%;">
-      <img src="images/fig-save.jpeg" valign="middle" alt="fig-reduction" style="width:100%;">
-      <br>
-      <b>Figure 2: Column graph reduction size of HSQC files</b>
-    </td>
-  </tr>
-</table>
 <br>
 
 ## 4.  OPEN IN A SIMPLE DATASET
