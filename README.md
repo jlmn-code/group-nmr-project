@@ -149,8 +149,25 @@ At this point it should be noted that the information is reduced from more than 
 
 ## 4.  OPEN IN A SIMPLE DATASET
 
-![All HSQC spectra](images/fig-all-dataset.jpeg){#fig-dataset}
+The new table generated combine all points of HSQC and add the info (yellow columns):
+* sample
+* batch
+* company
+
+![TYDY & INFO DATA](images/tbl-tidy-info.jpeg)
+
+The new structure is powerful, it can show all spectra and order in a simple plot
+
+![All HSQC spectra](images/fig-all-dataset.jpeg)
 
 ## 5.  elucidate the compound
+
+In the script `elucidation_script.py` is a interesting code where join the database `cholesterol.csv` with the assignment data of cholesterol with the new structure generated in points **3** and **4** of this report
+
+The code is a bit confused because the command `merge_asof` only let merge a variable **f1** and use the variable no selected, but the code works perfectly.
+
+Here, there is an example with the file *cholesterol-01B* with signals and assignment
+
+![cholesterol 01B](images/fig-01b-assignment.jpeg)
 
 ## 6.  integrate and quantify.
