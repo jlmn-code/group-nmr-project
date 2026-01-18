@@ -170,4 +170,12 @@ Here, there is an example with the file *cholesterol-01B* with signals and assig
 
 ![cholesterol 01B](images/fig-01b-assignment.jpeg)
 
-## 6.  integrate and quantify.
+## 6.  integrate and quantificate.
+
+Now is easy analysis the signal of each compound
+
+![Column graph quantity of componet by sample](images/fig-full-integration.jpeg)
+
+
+
+
