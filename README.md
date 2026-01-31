@@ -1,7 +1,9 @@
 ---
 title: "group-nmr-project"
 author: 'jlmn'
-format: html
+format: 
+  html:
+    code-fold: true
 ---
 
 # group-nmr-project
