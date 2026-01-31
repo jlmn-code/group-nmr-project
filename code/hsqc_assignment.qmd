@@ -1,0 +1,212 @@
+---
+title: "HSQC ASSIGNMENT"
+format: 
+  html:
+    code-fold: true
+---
+
+<!-- This file is a Quarto markdown file that contains Python code chunks for HSQC assignment. -->
+
+## CHOOSE THE LIBRARIES
+
+
+```{python}
+#| label: libraries
+
+###### library imports ######
+from _operator import sub
+from pandas import CategoricalDtype
+from statsmodels.tools import categorical
+from psutil import net_io_counters
+from great_tables._formats import fmt_number
+from numpy import true_divide
+from htmltools.tags import data
+import great_tables
+from plotnine.facets.facet_wrap import facet_wrap
+from pathlib import Path
+from _csv import writer
+import pandas as pd
+import numpy as np
+from plotnine import *
+from great_tables import *
+
+
+
+```
+
+## LOAD THE DATABASE
+
+### SATCK DATABASE COLLECTION
+
+This time lets load the file `compact.csv` created in `hsqc_script.qmd`. The file `compact.csv` has a stack database of 15 HSQC files of cholesterol
+
+
+```{python}
+
+hsqc_compact = pd.read_csv('database/work/compact.csv')
+
+```
+
+### REFERENCE SAMPLE
+
+Here, load a `cholesterol.csv` with the shifts of the cholesterol sample
+
+```{python}
+################ Asignation ########################
+################ data table shift ################
+cholesterol_shift = pd.read_csv("database/shift/cholesterol.csv", delimiter=';')
+
+cholesterol_shift.dropna(inplace=True) ## na
+
+cholesterol_shift.drop('intensity', inplace=True, axis=1) ## drop intensity
+
+cholesterol_shift.rename(columns={'H1':'f1',
+                                  'C13':'f2',
+                                  'Position':'Position_std',
+                                  'typr':'typr_std'
+                                  }, 
+                                  inplace=True)
+```
+
+
+## JOIN
+
+For the **assignment** let do a join between the `hsqc_compact`and `cholesterol_shift` dataframes. To this join needs:
+* short the values *f1*
+* use merged_asof function to the signal *f1*, where join the *nearest* values of *f1* of both dataframes to create **merged** dataframe
+* short the values *f2*
+* use merged_asof function to the signal *f2*, where join the *nearest* values of *f2* of both dataframes to create **merged** dataframe
+* and filter **merged** dataset delete difference more than 0.1% between `fX` of experimental data and `fX_cholesterol` of assignmeted and save in `mask`data frame
+* finally merge mask_f1 & mask_f2 in a single dataframe, `result`. 
+
+```{python}
+#| label: data-join
+
+
+hsqc_compact = hsqc_compact.sort_values('f1') # Sort both by the 'x' column (required for merge_asof)
+
+cholesterol_shift = cholesterol_shift.sort_values('f1') ## first order signal
+
+########## loop condition
+
+conditions = []
+
+for index, row in cholesterol_shift.iterrows():
+
+    condition = (hsqc_compact['f1'].between(row['f1'] - .07, row['f1'] + .07) &
+                 hsqc_compact['f2'].between(row['f2'] - 2.5, row['f2'] + 2.5)
+    )
+
+    conditions.append(condition)
+
+############## loop Choices
+
+choices = list(cholesterol_shift['Position_std'])
+
+############ assignment
+
+hsqc_compact['assignment'] = np.select(conditions, choices)
+
+
+
+
+# # Join on 'x' with a 'nearest' match
+# We don't use 'tolerance' here because it must be a percentage
+# merged = pd.merge_asof(hsqc_compact, cholesterol_shift, 
+#                       on='f1', direction='nearest', 
+#                       suffixes=('', '_cholesterol'))
+
+# merged = merged.sort_values('f2') ## first order signal
+
+# merged = pd.merge_asof(merged, cholesterol_shift.sort_values('f2'), 
+#                       on='f2', direction='nearest', 
+#                        suffixes=('', '_cholesterol'))
+
+# Filter both x and y by the 0.1% threshold
+# mask_f1 = (merged['f1'] - merged['f1_cholesterol']).abs() <= 10 ## 0.5 ppm difference 1H
+# mask_f2 = (merged['f2'] - merged['f2_cholesterol']).abs() <= 50 ## 2 ppm difference 13C
+
+# result = merged[mask_f1 & mask_f2]
+
+
+
+
+```
+
+## RESULT
+
+Eval: how many assignment are correctly
+There are 1318 case true and 163 false. There is remember that the HSQC are a simulation of *normal distribution* and is logic that many assignment are wrong (12.4%)
+
+```{python}
+# result['assignment'] = result['Position'] == result['Position_std']
+
+
+hsqc_compact['result'] = hsqc_compact['Position'] == hsqc_compact['assignment']
+
+hsqc_compact['assignment'] = hsqc_compact['assignment'].astype('category')
+hsqc_compact['Position'] = hsqc_compact['Position'].astype('category')
+
+
+
+hsqc_compact.groupby('result')['result'].count()
+
+
+
+```
+
+## VISUALIZE THE ASSIGNMENTS
+
+In this plot can see a panel with all HSQC spectra + assignments
+
+```{python}
+
+
+
+(
+    ggplot(
+    hsqc_compact, aes('f1', 'f2', color='assignment')) +
+    geom_point() +
+    facet_grid('company ~ batch')+
+    labs(title='DISPERSE PLOT OF ASSIGNAMENT OF HSQC SPECTRA')
+    )
+
+
+
+```
+
+
+## VISUALIZE THE GLOBAL INTEGRAL OF ASSIGNMENTS OF ALL SPACTRA HSQC
+
+This plot shows the results of integrate and assignment all spectra, and it allow us to see evidence difference like signal **0** in batch **4** to company **C**
+
+```{python}
+hsqc_integral = hsqc_compact.groupby(['id', 'assignment', 
+                                      'batch', 'company'])['intensity'].sum()
+
+
+hsqc_integral = hsqc_integral.to_frame(name='integral')
+
+
+
+hsqc_integral.reset_index(inplace=True)
+
+
+hsqc_integral['assignment'] = hsqc_integral['assignment'].astype(str).astype('category')
+
+
+
+```
+
+
+
+```{python}
+(
+    ggplot(hsqc_integral, aes('assignment', 'integral', fill ='assignment')) +
+    geom_col() +
+    coord_flip() +
+    facet_grid('company ~ batch', scales='free_x') +
+    theme(axis_text_x=element_text(angle=270)) +
+    labs(title='COLUMN PLOT OF INTEGRATE + ASSIGNAMENT OF HSQC SPECTRA')
+    )
+```

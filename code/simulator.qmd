@@ -1,0 +1,154 @@
+---
+title: "SIMULATION TEMPLATE"
+author: jlmn
+format: 
+  gfm:
+    code-fold: true
+    code-summary: "Click to expand code"
+---
+
+## IMPORT THE LIBRARIES
+
+```{python}
+#| label: libraries
+
+from pathlib import Path
+from _csv import writer
+import pandas as pd
+import numpy as np
+from plotnine import *
+from great_tables import *
+
+```
+
+## LOAD DATABASE
+
+Because I don't have any HSQC spectra but I know its structure (so many time work with its) I have obtained the shift of ^1^H and ^13^C of a known molecule *cholesterol*, and save it in a *.csv* file
+
+```{python}
+#| label: data-cholesterol
+    
+cholesterol_shift = pd.read_csv("E:/Jose/gh_nmr/positron/database/shift/cholesterol.csv", delimiter=';')
+
+#cholesterol_shift = pd.read_csv("E:/Jose/gh_nmr/positron/database/shift/cholesterol_propyl.csv", delimiter=';')
+```
+
+It has all important information @tbl-shift-cholesterol
+
+-   Position: atom number of the cholesterol
+
+-   typr: type of atom
+
+-   C13 & H1: shift in ppm
+
+-   intensity: intensity of the signal
+
+```{python}
+#| label: tbl-shift-cholesterol
+
+(
+    GT(cholesterol_shift.head(5))
+    .tab_header(title='CHOLESTEROL SHIFTS')
+    .tab_spanner(columns=['C13', 'H1'], label='in ppm')
+)
+```
+
+<br>
+
+The @tbl-shift-cholesterol is necessary clean and tidy
+
+```{python}
+
+
+cholesterol_shift.dropna(inplace=True) # remove na
+
+cholesterol_shift.fillna(0, inplace=True)
+
+cholesterol_shift['Position'] = cholesterol_shift['Position'].astype(str)
+```
+
+## NMR SIMULATION
+
+With de `dataframe cholesterol shift` let's make a simulation by `normal distribution`
+
+```{python}
+#| label: data-simulation
+
+##################### BASIC SIMULATION
+ 
+rng = np.random.default_rng(seed=1274) ## create a generator random sample & set a seed to reproducibility
+
+cholesterol_shift['f2'] = cholesterol_shift.apply(lambda row: rng.normal(loc=row['C13'], ## normal distibution to C13
+                    scale=row['C13']*.02, ## variation
+                    size=int(row['intensity']*.01)), axis=1) ## size the distribution
+
+cholesterol_shift['f1'] = cholesterol_shift.apply(lambda row: rng.normal(loc=row['H1'],
+                    scale=row['H1']*.01,
+                    size=int(row['intensity']*.01)), axis=1)
+
+
+cholesterol_nmr = cholesterol_shift.explode(['f2', 'f1']) ## join f1 & f2
+
+cholesterol_nmr['f2'] = cholesterol_nmr['f2'].astype(float) # transform in number
+cholesterol_nmr['f1'] = cholesterol_nmr['f1'].astype(float)
+
+################ ADD NOISE #########################################################
+
+noise = pd.DataFrame({
+    'f2': np.random.uniform(low=0, high=200, size=100000),
+    'f1': np.random.uniform(low=0, high=12, size=100000),
+    'intensity': np.random.uniform(low=-25, high=25, size=100000)
+})
+
+#################### JOIN NOISE & SIMULATION
+
+cholesterol_simulation = pd.concat([cholesterol_nmr, noise], ignore_index=True)
+
+cholesterol_simulation['X1'] = ('[' + cholesterol_simulation['f1'].astype(str) + 
+                                ':' + cholesterol_simulation['f2'].astype(str) + 
+                                ']')
+
+cholesterol_simulation['X2'] = cholesterol_simulation['intensity']
+
+cholesterol_simulation.drop(['C13', 'H1', 'f2', 'f1'], axis=1, inplace=True)
+
+
+
+
+```
+
+## MNova file
+
+The Mnova file when are saved as `.txt` or `.csv`. One time check the output @tbl-hsqc-standard is created a HSQC collection
+
+```{python}
+#| label: tbl-hsqc-standard
+#| tbl-cap: 'STANDARD FILE OF HSQC'
+
+
+(
+  GT(cholesterol_simulation.head(5))
+  .cols_hide(['Position', 'typr'])
+  .tab_header(title='TABLE: STANDARD FILE OF HSQC', 
+              subtitle= '5 FILES')
+)
+
+```
+
+
+
+
+## SAVE HSQC SIMULATION
+
+
+```{python}
+#| label: data-save
+################## export data ##################
+
+cholesterol_simulation.to_csv('E:/Jose/gh_nmr/database/simulation/cholesterol_05C.csv', index=False)
+
+```
+
+## INTRUCE AN IMPURITY
+
+In the `chunk` data-cholesterol activate cholesterol-propyl run the code and save like '5C'
